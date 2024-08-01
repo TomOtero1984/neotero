@@ -4,7 +4,7 @@
 -- <Flags>
 local PLUG = true
 local MINI_NVIM = true
-local LAZY_NVIM = true
+local LAZY_NVIM = false
 -- </Flags>
 
 
@@ -91,12 +91,6 @@ if MINI_NVIM then
 	--   </MiniPlugins>
 
 	--   <ExternalPlugins>
-	now(function()
-	  add({
-	    source = 'nvim-tree/nvim-tree.lua'
-	  })
-	  require('nvim-tree').setup()
-	end)
 
 	now(function()
 		add({
@@ -127,9 +121,6 @@ if MINI_NVIM then
 			source ='nvim-telescope/telescope.nvim',
 			depends = { 'nvim-lua/plenary.nvim' }
 		})
-		add('nvim-telescope/telescope-file-browser.nvim')
-		add('nvim-telescope/telescope-project.nvim')
-		require('telescope').load_extension('project')
 		require('telescope').setup({
 			extensions = {
 				project = {
